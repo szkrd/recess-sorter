@@ -1,0 +1,200 @@
+.button {
+    position: relative;
+    padding: 10px 20px;
+    font-family: $font-stack-primary;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color .15s ease, box-shadow .15s ease;
+    width: 1111px;
+    background: #fff;
+    .modal-popup & {
+        transform: translateZ(0);
+    }
+    .icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 8px;
+        vertical-align: middle;
+    }
+    &--filled {
+        color: #fff;
+        background-color: $color-brand-basic;
+        &:hover {
+            background-color: $color-brand-light;
+        }
+        &:active {
+            background-color: $color-brand-dark;
+        }
+    }
+    &--large {
+        font-size: 14px;
+        min-width: 150px;
+        line-height: 55 - 2*10px;
+        height: 55px;
+    }
+    &--medium {
+        font-size: 14px;
+        height: 45px;
+        line-height: 45 - 2*10px;
+        min-width: 100px;
+    }
+    &--outlined {
+        color: $color-brand-basic;
+        box-shadow: inset 0 0 0 2px $color-brand-basic;
+
+        &:hover {
+            color: #fff;
+            background-color: $color-brand-basic;
+        }
+
+        &:active {
+            color: #fff;
+            background-color: $color-brand-dark;
+            box-shadow: none;
+        }
+    }
+    &--white {
+        color: #fff;
+        box-shadow: inset 0 0 0 2px #fff;
+
+        &:hover {
+            color: $color-blue-basic;
+            background-color: #fff;
+        }
+
+        &:active {
+            color: $color-blue-basic;
+            background-color: #fff;
+            box-shadow: none;
+        }
+    }
+    &--alternate,
+    &--link.button {
+        font-family: $font-stack-default;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1;
+        color: $color-brand-basic;
+        text-decoration: underline;
+        text-transform: uppercase;
+    }
+    &--alternate {
+        background: #fff;
+        border: 2px solid $color-gray-light;
+        border-radius: 3px;
+    }
+    &--sticky-header {
+        height: 100%;
+        min-width: 0;
+        font-family: $font-stack-primary;
+        font-weight: 400;
+        border-radius: 0;
+        font-size: 12px;
+        .icon {
+            margin: 0 2px;
+            width: 14px;
+            height: 14px;
+            vertical-align: -2px;
+        }
+        &:hover {
+            background: $color-blue-dark;
+        }
+    }
+    &--with-subinfo {
+        font-family: $font-stack-default;
+        font-weight: 700;
+        &:hover {
+            color: #fff;
+            background-color: $color-brand-basic;
+
+            .button__subinfo {
+                border-color: $color-brand-dark;
+            }
+        }
+        &:active {
+            color: #fff;
+            background-color: $color-brand-dark;
+            box-shadow: none;
+            .button__subinfo {
+                border-color: #960060;
+            }
+        }
+    }
+    &--facebook {
+        color: #fff;
+        background-color: #4763a4;
+        .icon {
+            width: 14px;
+            height: 14px;
+            margin-top: -1px;
+        }
+        &:hover {
+            background-color: mix(#fff, #4763a4, 5%);
+        }
+        &:active {
+            background-color: mix(#000, #4763a4, 20%);
+        }
+    }
+    &--multiline {
+        font-family: $font-stack-default;
+        font-size: 18px;
+        line-height: 1;
+        color: $color-gray-dark;
+        text-transform: none;
+        white-space: normal;
+        strong {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        small {
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+    }
+    &--block {
+        width: 100%;
+        display: block;
+    }
+    &--hamburger {
+        text-align: center;
+        .icon {
+            margin: 0;
+        }
+    }
+    &__subinfo {
+        text-transform: none;
+        font-weight: 400;
+    }
+    &:disabled {
+        background: #dbdbdb;
+        color: $color-gray-basic;
+        cursor: default;
+        box-shadow: none;
+    }
+    &.loading {
+        position: relative;
+        color: transparent;
+        &::after {
+            display: block;
+            position: absolute;
+            top: calc(50% - 16px);
+            left: calc(50% - 16px);
+            z-index: 11;
+            width: 32px;
+            height: 32px;
+            // "Frown" icon by Dave Gandy from flaticon.com (License: CC 3.0 BY.)
+            background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MzguNTMzIiBoZWlnaHQ9IjQzOC41MzMiIHZpZXdCb3g9IjAgMCA0MzguNTMzIDQzOC41MzMiPjxwYXRoIGQ9Ik00MDkuMTMzIDEwOS4yMDNjLTE5LjYwOC0zMy41OTItNDYuMjA1LTYwLjE5LTc5Ljc5OC03OS43OTZDMjk1LjczNSA5LjggMjU5LjA1OCAwIDIxOS4yNzMgMGMtMzkuNzggMC03Ni40NyA5LjgtMTEwLjA2MyAyOS40MDctMzMuNTk1IDE5LjYwNC02MC4xOTIgNDYuMi03OS44IDc5Ljc5NkM5LjggMTQyLjggMCAxNzkuNDkgMCAyMTkuMjY3YzAgMzkuNzggOS44MDQgNzYuNDYzIDI5LjQwNyAxMTAuMDYyIDE5LjYwNyAzMy41OSA0Ni4yMDQgNjAuMTg4IDc5LjggNzkuNzk3IDMzLjU5NiAxOS42MDUgNzAuMjgyIDI5LjQwNyAxMTAuMDYyIDI5LjQwN3M3Ni40Ny05LjgwMiAxMTAuMDY0LTI5LjQwN2MzMy41OTMtMTkuNjAyIDYwLjE5LTQ2LjIwNiA3OS43OTUtNzkuNzk4IDE5LjYwMi0zMy41OTcgMjkuNDAyLTcwLjI4NSAyOS40MDItMTEwLjA2MyAwLTM5Ljc4Mi05LjgtNzYuNDcyLTI5LjQtMTEwLjA2NHptLTIxLjcgMTgxLjAxYy05LjcwOCAyMi41NTYtMjIuNjk1IDQxLjk3LTM4Ljk2OCA1OC4yNDUtMTYuMjcgMTYuMjctMzUuNjkgMjkuMjYtNTguMjQ1IDM4Ljk2NS0yMi41NTUgOS43MTItNDYuMjAyIDE0LjU2NC03MC45NDYgMTQuNTY0cy00OC4zOS00Ljg1My03MC45NDgtMTQuNTY0Yy0yMi41NTQtOS43MDUtNDEuOTctMjIuNjk2LTU4LjI0NS0zOC45NjUtMTYuMjY4LTE2LjI3NS0yOS4yNTgtMzUuNjg3LTM4Ljk3LTU4LjI0NS05LjcwNi0yMi41NTItMTQuNTYtNDYuMjA2LTE0LjU2LTcwLjk0NiAwLTI0Ljc0NCA0Ljg1My00OC4zOSAxNC41Ni03MC45NDggOS43MDgtMjIuNTU1IDIyLjY5OC00MS45NyAzOC45Ny01OC4yNDYgMTYuMjc1LTE2LjI3IDM1LjY5Mi0yOS4yNiA1OC4yNDYtMzguOTcgMjIuNTU0LTkuNzA0IDQ2LjIwNS0xNC41NTggNzAuOTQ4LTE0LjU1OCAyNC43NCAwIDQ4LjM5NSA0Ljg1IDcwLjk0NiAxNC41NTggMjIuNTU2IDkuNzA3IDQxLjk3IDIyLjY5OCA1OC4yNDUgMzguOTcgMTYuMjcyIDE2LjI3NCAyOS4yNiAzNS42ODggMzguOTcgNTguMjQ1IDkuNzA4IDIyLjU1MyAxNC41NjMgNDYuMiAxNC41NjMgNzAuOTQ3LjAwNCAyNC43NDQtNC44NTUgNDguMzk3LTE0LjU2NCA3MC45NDZ6Ii8+PHBhdGggZD0iTTI4NC4zNjggMjU4LjY2OGMtMTkuMjItMTQuMDg2LTQwLjkyNi0yMS4xMy02NS4wOTUtMjEuMTMtMjQuMTcyIDAtNDUuODcgNy4wNC02NS4wOTYgMjEuMTMtMTkuMjI0IDE0LjA4NS0zMi4zNTggMzIuNjQtMzkuMzk3IDU1LjY3LTEuNTIgNC43NTgtMS4xNDMgOS4zODIgMS4xNCAxMy44NDggMi4yODcgNC40NyA1LjkgNy40NjcgMTAuODUgOC45OTMgNC43NiAxLjUyNSA5LjM3NCAxLjE0MiAxMy44NDctMS4xNDUgNC40Ny0yLjI4NSA3LjQ2Ny01LjkgOC45OS0xMC44NDggNC43Ni0xNS4yMzUgMTMuNTYzLTI3LjU1NiAyNi40MS0zNi45OCAxMi44NDctOS40MTcgMjcuMjYzLTE0LjEyNiA0My4yNTItMTQuMTI2IDE1Ljk4NiAwIDMwLjQxIDQuNzEzIDQzLjI1IDE0LjEyOCAxMi44NTQgOS40MjQgMjEuNjU1IDIxLjc0NCAyNi40MTIgMzYuOTggMS41MiA0Ljk0NyA0LjU2NCA4LjU2IDkuMTM0IDEwLjg0NyA0LjU2OCAyLjI4NiA5LjIzNiAyLjY3IDEzLjk5IDEuMTQ0IDQuNzYtMS41MjcgOC4yNzctNC41MjUgMTAuNTYzLTguOTk0IDIuMjg1LTQuNDY2IDIuNjY4LTkuMDkgMS4xNC0xMy44NDctNy4wMy0yMy4wMjgtMjAuMTctNDEuNTktMzkuMzkyLTU1LjY3MnpNMTQ2LjE4IDE4Mi43MjVjMTAuMDg2IDAgMTguNy0zLjU3NiAyNS44MzgtMTAuNzEgNy4xNC03LjEzNCAxMC43MDgtMTUuNzQ4IDEwLjcwOC0yNS44MzYgMC0xMC4wOS0zLjU3LTE4LjctMTAuNzA4LTI1LjgzOHMtMTUuNzUyLTEwLjcxLTI1LjgzNy0xMC43MWMtMTAuMDg3IDAtMTguNyAzLjU3Mi0yNS44NCAxMC43MS03LjEzNCA3LjE0LTEwLjcwNiAxNS43NS0xMC43MDYgMjUuODM3czMuNTY4IDE4LjcgMTAuNzA3IDI1LjgzNmM3LjE0MiA3LjEzNiAxNS43NTMgMTAuNzEgMjUuODQgMTAuNzF6TTI5Mi4zNiAxMDkuNjNjLTEwLjA5IDAtMTguNzA3IDMuNTcyLTI1Ljg0NiAxMC43MS03LjEzMiA3LjE0LTEwLjcwOCAxNS43NS0xMC43MDggMjUuODM3IDAgMTAuMDg4IDMuNTc2IDE4LjcwMiAxMC43MDggMjUuODM3IDcuMTQgNy4xMzcgMTUuNzU2IDEwLjcxIDI1Ljg0NSAxMC43MSAxMC4wOCAwIDE4LjY5Ny0zLjU3NyAyNS44MzYtMTAuNzEgNy4xNC03LjEzNSAxMC43MDgtMTUuNzUgMTAuNzA4LTI1LjgzNyAwLTEwLjA5LTMuNTctMTguNy0xMC43MDgtMjUuODM3cy0xNS43NTYtMTAuNzEtMjUuODM3LTEwLjcxeiIvPjwvc3ZnPg==") center center no-repeat;
+            background-size: 32px 32px;
+            content: "";
+            animation: loader .75s ease-in-out infinite alternate;
+        }
+    }
+}
+a.button {
+    display: inline-block;
+    text-decoration: none;
+}
