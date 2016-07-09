@@ -6,6 +6,12 @@ Sort css/scss/less properties according to twitter recess rules.
 * it is meant to help you learn and use the recess order
 * it will NOT fix any other warnings, only the `property-sort-order` will be changed
 
+## install
+
+```
+npm i -g @szkrd/recess-sorter
+```
+
 ## options
 
 * -h / --help        - Help
