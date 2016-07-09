@@ -1,0 +1,10 @@
+body {
+    border: 2px solid green;
+
+    p {
+        color: red;
+    }
+
+    // the above p is not nice, but this tool will not care for that
+    overflow: hidden;
+}
