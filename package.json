@@ -1,6 +1,6 @@
 {
   "name": "recess-sorter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sort css/scss/sass/less properties according to twitter recess rules.",
   "bin": {
     "recess-sorter": "./bin/recess-sorter.js"

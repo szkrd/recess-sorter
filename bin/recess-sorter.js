@@ -45,8 +45,15 @@ if (recursive && !files.length) {
 // real magic: get all files from all directories (relative path, uniq, wildcards, sync)
 const ls = (f) => Array.from(recursive ? shell.ls('-R', f) : shell.ls(f))
 files = files.reduce((acc, prefix) => {
-  const isDir = fs.lstatSync(prefix).isDirectory()
-  acc.push(...ls(prefix).filter(fn => /\.(s?css|less)/.test(fn)).map(fn => isDir ? prefix + fn : fn))
+  let isDir
+  try {
+    isDir = fs.lstatSync(prefix).isDirectory()
+  } catch (err) {
+    process.exitCode
+    console.error(`No such file or directory: "${prefix}"`)
+    return acc
+  }
+  acc.push(...ls(prefix).filter(fn => /\.(s?css|less)/.test(fn)).map(fn => isDir ? prefix + '/' + fn : fn))
   return acc
 }, [])
 files = [...new Set(files)]
@@ -57,7 +64,7 @@ if (!files.length) {
 }
 
 files.forEach(fileName => {
-  fs.readFile(fileName, 'utf8', (err, contents) => {
+  fs.readFile(path.normalize(fileName), 'utf8', (err, contents) => {
     if (err) {
       exitCode = 1
       console.error(`Could not read "${fileName}".`)
@@ -67,7 +74,7 @@ files.forEach(fileName => {
     const extension = fileName.replace(/^.*\./, '')
     const ast = recessSorter.sort(contents, extension)
     const result = ast.toString()
-    if (!output) {
+    if (!output && !overwrite) {
       console.log(result)
       return true
     }
