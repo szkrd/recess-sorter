@@ -37,3 +37,8 @@ process all css files
 ```sh
 recess-sorter -w -d ./tests/**/*.css
 ```
+
+process all scss, css and less files
+```sh
+recess-sorter -w -r -d ./tests/
+```
