@@ -1,11 +1,11 @@
 {
-  "name": "recess-sorter",
+  "name": "@szkrd/recess-sorter",
   "version": "1.0.1",
   "description": "Sort css/scss/sass/less properties according to twitter recess rules.",
   "bin": {
-    "recess-sorter": "./bin/recess-sorter.js"
+    "recess-sorter": "bin/recess-sorter.js"
   },
-  "main": "./src/recessSorter",
+  "main": "src/recessSorter",
   "scripts": {
     "sass-lint-after": "sass-lint -c .sass-lint.yml 'tests/after/**/*.scss' -v -q",
     "sass-lint-before": "sass-lint -c .sass-lint.yml 'tests/before/**/*.scss' -v -q",
@@ -17,9 +17,11 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/szkrd/recess-sorter"
+    "url": "git+https://github.com/szkrd/recess-sorter.git"
   },
-  "bugs": "https://github.com/szkrd/recess-sorter/issues/",
+  "bugs": {
+    "url": "https://github.com/szkrd/recess-sorter/issues/"
+  },
   "devDependencies": {
     "eslint-config-standard": "5.3.1",
     "eslint-plugin-promise": "1.3.2",
@@ -43,5 +45,9 @@
     "lint",
     "test",
     "test-e2e"
-  ]
+  ],
+  "homepage": "https://github.com/szkrd/recess-sorter#readme",
+  "directories": {
+    "test": "tests"
+  }
 }
