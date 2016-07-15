@@ -79,10 +79,11 @@ files.forEach(fileName => {
       return true
     }
 
-    let target = path.normalize(files.length === 1 ? output : (output + '/' + fileName.replace(/^.*\//, '')))
+    let target = files.length === 1 ? output : (output + '/' + fileName.replace(/^.*\//, ''))
     if (overwrite) {
       target = fileName
     }
+    target = path.normalize(target)
     if (dry) {
       console.error(`Did not write "${target}".`)
       return true
