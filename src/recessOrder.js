@@ -1,13 +1,25 @@
 module.exports = [
-  // positioning
+  // # Twitter RECESS - Property order
+  // # https://github.com/twitter/recess
   'position',
   'top',
   'right',
   'bottom',
   'left',
   'z-index',
-  // box-model
   'display',
+  'align-content',
+  'align-items',
+  'align-self',
+  'flex',
+  'flex-basis',
+  'flex-direction',
+  'flex-flow',
+  'flex-grow',
+  'flex-shrink',
+  'flex-wrap',
+  'justify-content',
+  'order',
   'float',
   'width',
   'height',
@@ -35,7 +47,6 @@ module.exports = [
   'overflow-y',
   'clip',
   'clear',
-  // typography
   'font',
   'font-family',
   'font-size',
@@ -65,7 +76,6 @@ module.exports = [
   'list-style-type',
   'list-style-position',
   'list-style-image',
-  // visual
   'pointer-events',
   'cursor',
   'background',
@@ -110,8 +120,10 @@ module.exports = [
   'content',
   'quotes',
   'outline',
+  'outline-color',
   'outline-offset',
-  // misc
+  'outline-style',
+  'outline-width',
   'opacity',
   'filter',
   'visibility',
