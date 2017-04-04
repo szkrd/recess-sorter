@@ -91,3 +91,26 @@ div {
   animation-name: example;
 }
 `))
+
+// try not to touch variables
+assert.equal(trim(sorter.sort(`
+.vars {
+  $width: 300px;
+  background-color: #fff;
+  margin-left: -$width / 2;
+  left: 50%;
+  width: $width;
+  position: fixed;
+  top: 100px;
+}
+`, 'scss').toString()), trim(`
+.vars {
+  $width: 300px;
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  width: $width;
+  margin-left: -$width / 2;
+  background-color: #fff;
+}
+`))

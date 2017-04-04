@@ -2,6 +2,21 @@ const gonzales = require('gonzales-pe')
 const nodeUtils = require('./nodeUtils')
 const recessOrder = require('./recessOrder')
 
+// technically special variable nodes stay in place, but everyone else
+// goes around/before them, so they inadvertently end up at the end of the block
+function isAllowedNode (node) {
+  let src = node.toString()
+  // not sure if we have a nicer way to do this,
+  // this feels a bit hackish of course
+  if (node.syntax === 'scss' && src.startsWith('$')) {
+    return false
+  }
+  if (node.syntax === 'less' && src.startsWith('@')) {
+    return false
+  }
+  return true
+}
+
 /**
  * sort properties inside declaration blocks
  * according to the twitter recess order definition
@@ -19,7 +34,7 @@ function sort (source = '', syntax = 'scss') {
         declarations.push(parent)
       }
       parent._nodeBag = parent._nodeBag || []
-      if (parent.type === 'block') {
+      if (parent.type === 'block' && isAllowedNode(node)) {
         parent._nodeBag.push({
           node,
           parent,
