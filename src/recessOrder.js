@@ -45,6 +45,7 @@ module.exports = [
   'overflow',
   'overflow-x',
   'overflow-y',
+  'overflow-scrolling', // webkit only
   'clip',
   'clear',
   'font',

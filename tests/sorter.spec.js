@@ -114,3 +114,20 @@ assert.equal(trim(sorter.sort(`
   background-color: #fff;
 }
 `))
+
+// try fuzzy matching with all the major browser prefixes
+assert.equal(trim(sorter.sort(`
+.modal {
+  opacity: 0.5;
+  -webkit-overflow-scrolling: touch;
+  min-height: 170px;
+  overflow: auto;
+}
+`, 'scss').toString()), trim(`
+.modal {
+  min-height: 170px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0.5;
+}
+`))

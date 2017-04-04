@@ -32,12 +32,19 @@ function insertNodes (origOrderNodes, newOrderNodes) {
  * @returns {Object[]}
  */
 function sortNodesByProp (nodes, orderSet) {
-  const nodesProps = nodes.map(node => node.prop)
+  const nodesProps = nodes.map(node => node.prop) // found prop names
   const sortedFound = []
   for (let i = 0, l = orderSet.length; i < l; i++) {
-    const at = nodesProps.indexOf(orderSet[i])
-    if (at > -1) {
-      sortedFound.push(nodes[at])
+    // we could do a prefix list + map + filter + shift here, but that's
+    // MUCH slower with deep recursive parsing
+    const prefixes = ['', '-webkit-', '-moz-', '-ms-']
+    for (let m = 0, n = prefixes.length; m < n; m++) {
+      let prefix = prefixes[m]
+      const at = nodesProps.indexOf(prefix + orderSet[i])
+      if (at > -1) {
+        sortedFound.push(nodes[at])
+        break // prefix match, pos found, break prefix loop
+      }
     }
   }
   const remnants = []
