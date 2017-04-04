@@ -71,6 +71,11 @@ files.forEach(fileName => {
       return true
     }
 
+    if (!contents.trim()) {
+      console.warn(`No content in "${fileName}".`)
+      return true
+    }
+
     const extension = fileName.replace(/^.*\./, '')
     const ast = recessSorter.sort(contents, extension)
     const result = ast.toString()
