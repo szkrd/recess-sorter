@@ -1,10 +1,17 @@
 # recess-sorter
 
+**DEPRECATED**:
+use [styleint](https://github.com/stylelint/stylelint) or
+[postcss sorting](https://github.com/hudochenkov/postcss-sorting)
+
+---
+
 Sort css/scss/less properties according to twitter recess rules.
 
 * uses the [gonzales](https://github.com/tonyganch/gonzales-pe) AST parser
 * it is meant to help you learn and use the recess order
 * it will NOT fix any other warnings, only the `property-sort-order` will be changed
+* comments are not supported
 
 ## install
 
